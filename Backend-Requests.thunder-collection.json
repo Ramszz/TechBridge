@@ -1,0 +1,79 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "TechBridge Backend",
+  "dateExported": "2025-11-30",
+  "folders": [],
+  "requests": [
+    {
+      "name": "Register User",
+      "method": "POST",
+      "url": "http://127.0.0.1:8000/api/users/register/",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\"username\":\"test1\",\"email\":\"test1@example.com\",\"password\":\"Password123\",\"role\":\"student\"}"
+      }
+    },
+    {
+      "name": "Login (Get Token)",
+      "method": "POST",
+      "url": "http://127.0.0.1:8000/api/token/",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\"username\":\"test1\",\"password\":\"Password123\"}"
+      }
+    },
+    {
+      "name": "Profile - Me",
+      "method": "GET",
+      "url": "http://127.0.0.1:8000/api/users/me/",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{access_token}}" }
+      ]
+    },
+    {
+      "name": "List Students",
+      "method": "GET",
+      "url": "http://127.0.0.1:8000/api/users/students/"
+    },
+    {
+      "name": "List Alumni",
+      "method": "GET",
+      "url": "http://127.0.0.1:8000/api/users/alumni/"
+    },
+    {
+      "name": "Admin - List All Users",
+      "method": "GET",
+      "url": "http://127.0.0.1:8000/api/users/manage/",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{admin_token}}" }
+      ]
+    },
+    {
+      "name": "Admin - Delete User",
+      "method": "DELETE",
+      "url": "http://127.0.0.1:8000/api/users/manage/{{username}}/",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{admin_token}}" }
+      ]
+    },
+    {
+      "name": "Admin - Update User",
+      "method": "PATCH",
+      "url": "http://127.0.0.1:8000/api/users/manage/{{username}}/",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{admin_token}}" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\"headline\": \"Updated by admin\"}"
+      }
+    }
+  ]
+}
